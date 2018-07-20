@@ -1,0 +1,91 @@
+buildscript {
+	ext {
+		kotlinVersion = '1.2.41'
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
+		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+	}
+}
+
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-spring'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example.gradle'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+compileKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ["-Xjsr305=strict"]
+		jvmTarget = "1.8"
+	}
+}
+compileTestKotlin {
+	kotlinOptions {
+		freeCompilerArgs = ["-Xjsr305=strict"]
+		jvmTarget = "1.8"
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	compile("org.jetbrains.kotlin:kotlin-reflect")
+	compile files('libs/MavenExternalJar-0.0.1-SNAPSHOT.jar')
+	compile files('build/libs/AstroSoft.jar')
+	compile files('build/libs/swisseph.jar')
+	compile files('build/libs/avalon-framework-4.2.0.jar')
+	compile files('build/libs/batik-all-1.6.jar')
+	compile files('build/libs/c3p0-0.9.1.jar')
+	compile files('build/libs/commons-collections-2.1.1.jar')
+	compile files('build/libs/cglib-2.1.3.jar')
+	compile files('build/libs/commons-io-1.1.jar')
+	compile files('build/libs/commons-logging-1.0.4.jar')
+	compile files('build/libs/dom4j-1.6.1.jar')
+	compile files('build/libs/drools-core.jar')
+	compile files('build/libs/drools-decisiontables.jar')
+	compile files('build/libs/drools-compiler.jar')
+	compile files('build/libs/drools-jsr94.jar')
+	compile files('build/libs/ejb3-persistence.jar')
+	compile files('build/libs/fop.jar')
+	compile files('build/libs/javassist.jar')
+	compile files('build/libs/jboss-archive-browsing.jar')
+	compile files('build/libs/jcalendar.jar')
+	compile files('build/libs/jsr94.jar')
+	compile files('build/libs/jta.jar')
+	compile files('build/libs/jxl.jar')
+	compile files('build/libs/org.eclipse.jdt.core.jar')
+	compile files('build/libs/org.jar')
+	compile files('build/libs/suntimes.jar')
+	compile files('build/libs/toniclf.jar')
+	compile files('build/libs/xmlgraphics-commons-1.1.jar')
+	compile files('build/libs/xpp3.jar')
+	compile files('build/libs/xpp3_min.jar')
+	compile files('build/libs/xstream.jar')
+	compile files('build/libs/ant-1.6.5.jar')
+	compile files('build/libs/ant-antlr-1.6.5.jar')
+	compile files('build/libs/antlr-2.7.6.jar')
+	compile files('build/libs/antlr-runtime.jar')
+	compile files('build/libs/asm.jar')
+	compile files('build/libs/asm-attrs.jar')
+	compile files('build/libs/hibernate3.jar')
+	compile files('build/libs/hibernate-annotations.jar')
+	compile files('build/libs/hibernate-entitymanager.jar')
+	compile files('build/libs/mvel14.jar')
+
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
